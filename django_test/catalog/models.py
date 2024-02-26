@@ -41,6 +41,7 @@ class Good(TimeDataBaseModel, models.Model):
     active = models.BooleanField('Active', default=False, help_text='отобразить товар на сайте')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='goods')
     tags = models.ManyToManyField(Tag, related_name='goods_tag')
+    image = models.ImageField(upload_to='image', null=True, blank=True)
 
     class Meta:
         verbose_name = 'Товар'
