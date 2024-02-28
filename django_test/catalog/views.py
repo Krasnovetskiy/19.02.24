@@ -11,6 +11,7 @@ class TagViewSet(viewsets.ModelViewSet):
 
 
 class GoodViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = Good.objects.filter(active=True)
     serializer_class = GoodSerializer
 
