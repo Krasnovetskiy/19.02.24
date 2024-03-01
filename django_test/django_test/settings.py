@@ -40,13 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # my apps
     'catalog',
-    'ckeditor',
     'user_profile',
+    'statistic',
+    # 3dg app
+    'ckeditor',
     'rest_framework',
     'drf_spectacular',
-    'debug_toolbar',
     'rest_framework_simplejwt',
+    'django_filters',
+    'debug_toolbar',
+
 ]
 
 MIDDLEWARE = [
@@ -57,7 +62,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'statistic.middleware.SaveHeaderMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+
 ]
 
 ROOT_URLCONF = 'django_test.urls'
