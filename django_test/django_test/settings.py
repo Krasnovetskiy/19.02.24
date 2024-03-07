@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework_simplejwt',
     'django_filters',
+    "corsheaders",
     'debug_toolbar',
 
 ]
@@ -62,6 +63,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'statistic.middleware.SaveHeaderMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
 
 ]
@@ -163,3 +166,45 @@ EMAIL_HOST_USER: ''
 EMAIL_HOST_PASSWORD: ''
 EMAIL_USE_TLS: False
 EMAIL_USE_SSL: False
+
+CORS_ORIGINS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
+
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
+
+CORS_ORIGINS_WHITELIST = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
+
+CORS_ORIGINS_REGEX_WHITELIST = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
+
+# Celery
+# CELERY_BEAT_SCHEDULE = {
+#   'update_rates': {
+#       'task': 'rate.tasks.get_latest_rates',
+#       'schedule': datetime.timedelta(days=1),
+#   },
+# }
